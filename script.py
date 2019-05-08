@@ -1,7 +1,11 @@
 import os
 import sys
+from pathlib import Path
 
-if not os.path.isdir("~/.entry"):
+
+home = str(Path.home())
+directory = os.path.exists(home + "/.entry")
+if not directory:
     os.system("mkdir ~/.entry")
 if len(sys.argv) < 2:
     os.system("python3.7 " + os.path.dirname(os.path.realpath(__file__)) + "/leer.py")

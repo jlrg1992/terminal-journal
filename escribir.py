@@ -10,13 +10,15 @@ p = str(t.strftime("%X")) + "\n"
 while True:
     tx = str(input("Text: "))
     if(len(tx) < 1):
+        import getpass
+        p = getpass.getpass()
         exists = os.path.isfile(fn)
         if exists:
-            os.system("openssl enc -aes-256-cbc -d -a -in " + fn + " -out " + fn + ".tmp" )
+            os.system("openssl enc -aes-256-cbc -d -a -in " + fn + " -out " + fn + ".tmp -k " + p)
         with open(fn+".tmp", "a+") as f:
             f.write(p)
         os.system('clear')
-        os.system("openssl enc -aes-256-cbc -salt -a -in " + fn + ".tmp -out " + fn)
+        os.system("openssl enc -aes-256-cbc -salt -a -in " + fn + ".tmp -out " + fn +" -k " + p)
         os.system("rm "+fn+".tmp")
         print("Saved")
         break
