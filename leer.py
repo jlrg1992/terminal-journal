@@ -1,5 +1,7 @@
 import os, sys
 from pathlib import Path
+import getpass
+
 
 pr = str(Path.home())+"/.entry/"
 c = 0
@@ -14,6 +16,9 @@ for names in items:
 
 #Which file is going to be opened
 ftp = int(input("Select the file's number: "))
-os.system("openssl enc -aes-256-cbc -d -a -in " + pr + lf[ftp] + " -out .dfile.txt" )
-os.system("vim .dfile.txt" )
-os.system("rm .dfile.txt")
+p = getpass.getpass("What's your password: ")
+
+
+os.system( "openssl enc -aes-256-cbc -d -a -k "+p+" -in " + pr + lf[ftp] + " -out .dfile.txt")
+if os.path.isfile(".dfile.txt"):
+    os.system("vim .dfile.txt" )
