@@ -16,7 +16,7 @@ To read an specific day, just run script.py without arguments.
 The files are saved at the `~/.entry`directory.
 You don't need to create this folder, it is made for you.
 
-I recommend adding an alias to quick access.
+I recommend adding an alias for quick access.
 ```
 alias j="path/foo/journal/script.py"
 alias jw="path/foo/journal/script.py w"
