@@ -21,5 +21,5 @@ p = getpass.getpass("What's your password: ")
 
 os.system( "openssl enc -aes-256-cbc -d -a -k "+p+" -in " + pr + lf[ftp] + " -out .dfile.txt")
 if os.path.isfile(".dfile.txt"):
-    os.system("vim .dfile.txt" )
+    os.system("less .dfile.txt" )
     os.system("rm .dfile.txt")
