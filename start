@@ -1,10 +1,17 @@
 #!/bin/bash
 
-if ! [ -d ~/.entry ]
+if ! [ -d ~/.entry ];
 then
 	mkdir ~/.entry
-else
-	echo "it exists"
 fi
 
 
+if [ $# -eq 0 ];
+then
+	python3 "./leer.py"
+else
+	if [ "$@" == "w" ];
+	then
+		python3 "./escribir.py"
+	fi
+fi 
