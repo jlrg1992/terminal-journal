@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if ! [ -d ~/.entry ];
+if ! [[ -d ~/.entry ]];
 then
 	mkdir ~/.entry
 fi
