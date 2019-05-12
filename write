@@ -1,0 +1,9 @@
+#!/bin/bash
+
+FILE=`date +"%d-%m-%Y"`
+
+if [ -f ~/.entry/$FILE.txt ]
+then
+	openssl enc -aes-256-cbc -a -d -in ~/.entry/${FILE}.txt -out thing.txt.tmp
+fi
+date +"%H:%M" >> thing.txt.tmp && vim thing.txt.tmp && openssl enc -aes-256-cbc -a -in thing.txt.tmp -out ~/.entry/${FILE}.txt && rm *tmp
