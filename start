@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if ! [ -d ~/.entry ]
+then
+	mkdir ~/.entry
+else
+	echo "it exists"
+fi
+
+
