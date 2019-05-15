@@ -1,6 +1,6 @@
 #!/bin/bash
 
-FILE=`date +"%d-%m-%Y"`
+FILE=`date +"%Y-%m-%d"`
 
 if [ -f ~/.entry/$FILE.txt ]
 then

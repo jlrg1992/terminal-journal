@@ -8,10 +8,10 @@ fi
 
 if [ $# -eq 0 ];
 then
-	/$(dirname "${BASH_SOURCE[0]}")/leer.py
+	/$(dirname "${BASH_SOURCE[0]}")/reader
 else
 	if [ "$@" == "w" ];
 	then
-		/$(dirname "${BASH_SOURCE[0]}")/write
+		/$(dirname "${BASH_SOURCE[0]}")/writer
 	fi
 fi 

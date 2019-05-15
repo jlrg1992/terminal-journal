@@ -1,0 +1,11 @@
+#!/bin/bash
+
+
+echo "Which day would you like to read?"
+select f in `ls ~/.entry`
+do
+    openssl enc -aes-256-cbc -a -d -in ~/.entry/${f} -out thing.txt.tmp
+    less thing.txt.tmp
+    rm thing.txt.tmp
+    break
+done
