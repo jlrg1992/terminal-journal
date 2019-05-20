@@ -7,17 +7,17 @@ You'll need python 3 >
 
 # How to use it
 
-To start writing start the script.py with `w`as argument.
+To start writing, run the script `start` with `w` as argument.
 You can start a new paragraph with return.
 When you are finished writing just type return leaving the string empty.
 
-To read an specific day, just run script.py without arguments.
+To read an specific day, just run the `start` script without arguments.
 
 The files are saved at the `~/.entry`directory.
 You don't need to create this folder, it is made for you.
 
 I recommend adding an alias for quick access.
 ```
-alias j="path/foo/journal/script.py"
-alias jw="path/foo/journal/script.py w"
+alias j="foo/journal/start"
+alias jw="foo/journal/start w"
 ```
