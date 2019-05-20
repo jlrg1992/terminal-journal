@@ -2,8 +2,7 @@
 A way of journaling in the terminal
 
 This journaling program uses openssl to encrypt the files it generates with aes-256-cbc standard, as bit64.
-You'll need python 3 >
-
+Built with bash
 
 # How to use it
 
