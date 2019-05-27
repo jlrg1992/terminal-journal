@@ -1,10 +1,11 @@
 #!/bin/bash
 
-FILE=`date +"%Y-%m-%d"`
+FILE=`date +"%Y"`
+read -s -p "Enter your password: " lol
 
 if [ -f ~/.entry/$FILE.txt ]
 then
-	openssl enc -aes-256-cbc -a -d -in ~/.entry/${FILE}.txt -out thing.txt.tmp
+	openssl enc -aes-256-cbc -a -d -k "$lol" -in ~/.entry/${FILE}.txt -out thing.txt.tmp
 fi
-date +"%H:%M" >> thing.txt.tmp && vim thing.txt.tmp && openssl enc -aes-256-cbc -a -in thing.txt.tmp -out ~/.entry/${FILE}.txt && rm *tmp
+date +"%d/%m %H:%M" >> thing.txt.tmp && vim thing.txt.tmp && openssl enc -aes-256-cbc -a -k "$lol" -in thing.txt.tmp -out ~/.entry/${FILE}.txt && rm thing.txt.tmp
 history -c
