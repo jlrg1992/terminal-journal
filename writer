@@ -3,9 +3,14 @@
 FILE=`date +"%Y"`
 read -s -p "Enter your password: " lol
 
-if [ -f ~/.entry/$FILE.txt ]
+if [ -f ~/.entry/$FILE.md ]
 then
-	openssl enc -aes-256-cbc -a -d -k "$lol" -in ~/.entry/${FILE}.txt -out thing.txt.tmp
+	openssl enc -aes-256-cbc -a -d -k "$lol" -in ~/.entry/${FILE}.md -out thing.tmp.md
 fi
-date +"%d/%m %H:%M" >> thing.txt.tmp && vim thing.txt.tmp && openssl enc -aes-256-cbc -a -k "$lol" -in thing.txt.tmp -out ~/.entry/${FILE}.txt && rm thing.txt.tmp
+echo "" >> thing.tmp.md
+date +"# %d/%m %H:%M" >> thing.tmp.md
+echo -e "\n" >> thing.tmp.md
+vim thing.tmp.md
+openssl enc -aes-256-cbc -a -k "$lol" -in thing.tmp.md -out ~/.entry/${FILE}.md
+rm thing.tmp.md
 history -c
