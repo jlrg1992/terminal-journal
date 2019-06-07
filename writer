@@ -1,16 +1,24 @@
 #!/bin/bash
 
 FILE=`date +"%Y"`
-read -s -p "Enter your password: " lol
+read -s -p "1. Enter your password: " lol
+echo ""
+read -s -p "2. Enter your password: " lols
+echo ""
 
-if [ -f ~/.entry/$FILE.md ]
-then
-	openssl enc -aes-256-cbc -a -d -k "$lol" -in ~/.entry/${FILE}.md -out thing.tmp.md
+if [ "$lol" = "$lols" ]; then
+
+	if [ -f ~/.entry/$FILE.md ]
+	then
+		openssl enc -aes-256-cbc -a -d -k "$lol" -in ~/.entry/${FILE}.md -out thing.tmp.md
+	fi
+	echo "" >> thing.tmp.md
+	date +"# %d/%m %H:%M" >> thing.tmp.md
+	echo -e "\n" >> thing.tmp.md
+	vim thing.tmp.md
+	openssl enc -aes-256-cbc -a -k "$lol" -in thing.tmp.md -out ~/.entry/${FILE}.md
+	rm thing.tmp.md
+	history -c
+else
+	echo "Not matching passwords, try again"
 fi
-echo "" >> thing.tmp.md
-date +"# %d/%m %H:%M" >> thing.tmp.md
-echo -e "\n" >> thing.tmp.md
-vim thing.tmp.md
-openssl enc -aes-256-cbc -a -k "$lol" -in thing.tmp.md -out ~/.entry/${FILE}.md
-rm thing.tmp.md
-history -c
